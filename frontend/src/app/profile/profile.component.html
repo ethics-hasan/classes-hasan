@@ -1,0 +1,84 @@
+<div class="container my-5">
+
+  <h1 class="py-3">Profile</h1>
+
+  <form #form="ngForm" ngNativeValidate (ngSubmit)="onSubmit(form)">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        [ngModel]="this.name"
+        name="name"
+        placeholder="Enter Student Name"
+        required
+      >
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        [ngModel]="this.username"
+        name="username"
+        disabled
+        placeholder="Enter Student Username">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input
+        type="email"
+        matInput
+        [ngModel]="this.email"
+        name="email"
+        placeholder="Enter Student E-mail"
+        required
+      >
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Contact Number</mat-label>
+      <input
+        type="text"
+        minLength="10"
+        maxLength="10"
+        pattern="[0-9]*"
+        matInput
+        [ngModel]="this.contact"
+        name="contact"
+        placeholder="Enter Student Phone No"
+        required
+      >
+      <mat-icon matSuffix>call</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Standard</mat-label>
+      <input
+        type="number"
+        maxlength="2"
+        matInput
+        [ngModel]="this.standard"
+        name="standard"
+        placeholder="Enter Student Standard"
+        required
+        disabled
+      >
+      <mat-icon matSuffix>school</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Select Stream</mat-label>
+      <mat-select [(ngModel)]="this.stream" name="stream">
+        <mat-option *ngFor="let stream of streams" [value]="stream.value" disabled>
+          {{stream.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button class="bg-color text-white">Update Profile</button>
+  </form>
+</div>

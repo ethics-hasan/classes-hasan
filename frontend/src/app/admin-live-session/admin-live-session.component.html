@@ -1,0 +1,109 @@
+<div class="container d-flex align-items-center justify-content-center register-student-wrapper">
+  <mat-card class="my-5 form-card">
+    <h1 class="text-center">Add Live Session</h1>
+    <form #form="ngForm" ngNativeValidate (ngSubmit)="onSubmit(form)">
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          ngModel
+          type="text"
+          name="title"
+          #titleField="ngModel"
+          placeholder="Enter video title"
+          required
+        >
+        <mat-icon matSuffix>title</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Select Subject</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="subject">
+          <mat-option *ngFor="let subject of subjects" [value]="subject.value">
+            {{subject.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Select Stream</mat-label>
+        <mat-select [(ngModel)]="selectedStreamValue" name="stream">
+          <mat-option *ngFor="let stream of streams" [value]="stream.value">
+            {{stream.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Teacher</mat-label>
+        <input
+          matInput
+          ngModel
+          type="text"
+          name="teacher"
+          #teacherField="ngModel"
+          placeholder="Enter teacher name"
+          required
+        >
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Duration</mat-label>
+        <input
+          matInput
+          ngModel
+          type="number"
+          name="duration"
+          #durationField="ngModel"
+          placeholder="Enter lecture duration"
+        >
+        <mat-icon matSuffix>schedule</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Video Link</mat-label>
+        <input
+          type="url"
+          matInput
+          ngModel
+          name="videolink"
+          #videoLinkField="ngModel"
+          placeholder="Enter video link"
+          required
+        >
+        <mat-icon matSuffix>link</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          ngModel
+          type="text"
+          name="description"
+          #descriptionField="ngModel"
+          placeholder="Enter description"
+          required
+        >
+        <mat-icon matSuffix>article</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Standard</mat-label>
+        <input
+          matInput
+          ngModel
+          name="standard"
+          #standardField="ngModel"
+          type="number"
+          placeholder="Enter standard"
+          required
+        >
+        <mat-icon matSuffix>school</mat-icon>
+      </mat-form-field>
+
+      <button type="submit" mat-raised-button class="bg-color text-white">Add Video</button>
+    </form>
+  </mat-card>
+</div>

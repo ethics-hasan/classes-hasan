@@ -1,0 +1,29 @@
+<div class="login-container my-5">
+  <div class="container d-flex align-items-center justify-content-between flex-md-row flex-column gap-3">
+    <div class="left-img">
+      <img src="../../assets/login-img.svg" alt="Login image">
+    </div>
+    <div class="form">
+      <mat-card>
+        <h2 class="text-center">Login</h2>
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+          <mat-form-field appearance="outline">
+            <mat-label>Enter Your Username</mat-label>
+            <input matInput placeholder="Placeholder" ngModel name="username" #usernameField="ngModel">
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+          <br>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="'password'" name="password" ngModel #passwordField="ngModel">
+            <mat-icon matSuffix>visibility</mat-icon>
+          </mat-form-field>
+          <br>
+
+          <button type="submit" mat-raised-button class="bg-color text-white">Login</button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+mat-form-field {
+  display: block;
+}
+
+.form-card {
+  text-align: center;
+  width: 50%;
+}
+
+@media screen and (max-width: 576px) {
+  .form-card {
+    width: 100%;
+  }
+}

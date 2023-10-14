@@ -1,0 +1,28 @@
+<div class="container my-5 d-flex gap-3 flex-wrap">
+
+  <mat-card *ngFor="let session of videos" class="live-card">
+    <mat-card-title>{{session.title}}</mat-card-title>
+    <mat-card-subtitle>Teacher: {{session.teacher}}</mat-card-subtitle>
+    <mat-card-content>
+      <p>Standard: {{session.standard}}</p>
+      <p>Stream: {{session.stream}}</p>
+      <p>{{session.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a [href]="session.videolink" mat-raised-button color="primary" target="_blank" mat-button>Session Link</a>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="updateLiveSession(session._id)"
+        class="d-inline-flex align-items-center justify-content-center">
+        <mat-icon class="add-icon">edit</mat-icon>
+      </button><button
+        mat-raised-button
+        color="warn"
+        (click)="deleteLiveSession(session._id, session.title)"
+        class="d-inline-flex align-items-center justify-content-center">
+        <mat-icon class="add-icon">delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

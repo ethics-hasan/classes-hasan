@@ -1,0 +1,79 @@
+<div class="container my-5">
+  <div class="btn-wrapper">
+    <button mat-raised-button color="primary" routerLink="/register-student">Register Student</button>
+    <button
+      mat-raised-button
+      color="warn"
+      routerLink="/add-video"
+      class="d-inline-flex align-items-center justify-content-center">
+      <mat-icon class="add-icon">add</mat-icon>
+      <span>Add Recorded Session</span>
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      routerLink="/manage-videos">
+      <mat-icon class="manage-icon">settings</mat-icon>
+      Manage Recorded Session
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      routerLink="/admin/live-session"
+      class="d-inline-flex align-items-center justify-content-center">
+      <mat-icon class="add-icon">add</mat-icon>
+      <span>Add Live Session</span>
+    </button>
+    <button
+    mat-raised-button
+    color="accent"
+    routerLink="/admin/manage-live-session"
+    class="d-inline-flex align-items-center justify-content-center">
+    <mat-icon class="manage-icon">settings</mat-icon>
+    <span>Manage Live Session</span>
+  </button>
+  </div>
+
+<!--  &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+  <h1 class="mt-4">Student List</h1>
+
+  <div class="table-wrapper">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Username</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Standard</th>
+        <th scope="col">Stream</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr
+        *ngFor="let user of users; let i = index"
+        [class.table-success] = "user.isAdmin"
+      >
+        <th scope="row">{{i +1}}</th>
+        <td [class.table-success] = "user.isAdmin">{{user.name}}</td>
+        <td [class.table-success] = "user.isAdmin">{{user.username}}</td>
+        <td [class.table-success] = "user.isAdmin">{{user.email}}</td>
+        <td [class.table-success] = "user.isAdmin">{{user.contact}}</td>
+        <td [class.table-success] = "user.isAdmin">{{user.standard}}</td>
+        <td [class.table-success] = "user.isAdmin">{{user.stream}}</td>
+        <td>
+          <mat-icon
+            id="{{user._id}}"
+            *ngIf="!user.isAdmin"
+            [class.table-success] = "user.isAdmin"
+            (click)="deleteUser(user._id, user.name)"
+          >delete</mat-icon>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

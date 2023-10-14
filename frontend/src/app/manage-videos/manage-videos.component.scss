@@ -1,0 +1,28 @@
+.card {
+  width: 300px;
+  border: 1px solid #eee;
+  border-radius: .5rem;
+  padding: .5rem;
+  box-shadow: 2px 2px 15px 3px #999;
+}
+
+.video-container{
+  width:100%;
+  height:250px;
+  overflow:hidden;
+  position:relative;
+  border-radius: .5rem;
+
+  iframe {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 120px);
+    pointer-events: auto;
+  }
+
+  .action-btn-container {
+    width: 100%;
+  }
+}

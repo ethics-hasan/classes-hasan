@@ -1,0 +1,44 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav hidden"
+    fixedInViewport="false"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar class="toolbar-bg">Student Name</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="isAdmin ? '/home' : '/student'">Home</a>
+      <a mat-list-item routerLink="about-us">About Us</a>
+      <a mat-list-item routerLink="contact-us">Contact us</a>
+      <a mat-list-item routerLink="profile">Profile</a>
+      <a mat-list-item (click)="logout()">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="toolbar-bg">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Classes</span>
+      <span class="spacer"></span>
+      <div class="hide">
+        <a class="nav-link" *ngIf="isAdmin" routerLink='home'>Home</a>
+        <a class="nav-link" *ngIf="!isAdmin" routerLink='student'>Student Home</a>
+        <a class="nav-link" routerLink="about-us">About Us</a>
+        <a class="nav-link" routerLink="contact-us">Contact us</a>
+        <a class="nav-link" routerLink="profile">Profile</a>
+        <mat-icon *ngIf="!isLoggedIn" (click)="login()">login</mat-icon>
+        <mat-icon *ngIf="isLoggedIn" (click)="logout()">logout</mat-icon>
+      </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

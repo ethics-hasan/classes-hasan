@@ -1,0 +1,34 @@
+
+<div class="container my-3 d-flex align-items-center justify-content-center gap-5 flex-md-row flex-column flex-wrap">
+  <div class="card" *ngFor="let video of videos">
+    <div class="video-container" >
+      <div class="video-foreground">
+        <iframe
+          [src]="video.videolink"
+          frameBorder="0" allowFullScreen>
+        </iframe>
+      </div>
+    </div>
+    <h2>Title: {{video.title}}</h2>
+    <p>Teacher: {{video.teacher}}</p>
+    <p>length: {{video.duration}} mins</p>
+
+    <div class="action-btn-container d-flex gap-2 align-items-center justify-content-end">
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="editVideo(video._id)"
+        class="">
+        <mat-icon class="add-icon">edit</mat-icon>
+      </button>
+
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="deleteVideo(video._id, video.title)"
+        class="">
+        <mat-icon class="add-icon">delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

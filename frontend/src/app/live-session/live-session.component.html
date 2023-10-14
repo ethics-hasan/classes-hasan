@@ -1,0 +1,26 @@
+<div class="container my-5 d-flex gap-3 flex-wrap">
+  <!--  <div *ngFor="let session of videos" class="card" style="width: 18rem;">-->
+  <!--    <div class="card-body">-->
+  <!--      <h5 class="card-title">{{session.title}}</h5>-->
+  <!--      <h6 class="card-subtitle mb-2 text-muted">Teacher: {{session.teacher}}</h6>-->
+  <!--      <h6 class="card-subtitle mb-2 text-muted">Standard: {{session.standard}}</h6>-->
+  <!--      <h6 class="card-subtitle mb-2 text-muted">Stream: {{session.stream}}</h6>-->
+  <!--      <p class="card-text">{{session.description}}</p>-->
+  <!--      <a [href]="session.videolink" target="_blank" class="card-link">Session link</a>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <mat-card *ngFor="let session of videos" class="live-card">
+    <mat-card-title>{{session.title}}</mat-card-title>
+    <mat-card-subtitle>Teacher: {{session.teacher}}</mat-card-subtitle>
+    <mat-card-content>
+      <p>Standard: {{session.standard}}</p>
+      <p>Stream: {{session.stream}}</p>
+      <p>{{session.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a [href]="session.videolink" mat-raised-button color="primary" target="_blank" mat-button>Session Link</a>
+
+    </mat-card-actions>
+  </mat-card>
+</div>

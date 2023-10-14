@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <mat-form-field appearance="outline">
+    <mat-label>Select Subject</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="subject" (selectionChange)="selectSubject($event)">
+      <mat-option *ngFor="let subject of subjects" [value]="subject.value">
+        {{subject.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="container my-5 d-flex align-items-center justify-content-center gap-5 flex-md-row flex-column flex-wrap">
+  <div class="card" *ngFor="let video of videos">
+    <div class="video-container" >
+      <div class="video-foreground">
+        <iframe
+          [src]="video.videolink"
+          frameBorder="0" allowFullScreen>
+        </iframe>
+      </div>
+    </div>
+          <h2>Title: {{video.title}}</h2>
+    <p>Teacher: {{video.teacher}}</p>
+    <p>length: {{video.duration}} mins</p>
+  </div>
+</div>
